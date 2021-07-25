@@ -25,10 +25,20 @@ public class Produto {
 		return preco;
 	}
 
-	public void setPreco(double preco) {
-		this.preco = preco;
+	
+	public String toString() {
+		return "Produto: " + nome + ", Preço: $" + String.format("%.2f", preco);
 	}
 	
+	public double desconto() {
+		return preco -= preco * 2/100;
+		
+	}
+	
+	public double parcelado() {
+		return preco += preco * 2/100;
+		
+	}
 	
 	
 	
