@@ -28,7 +28,16 @@ public class Programa {
 		if(resp == 'p') {
 			System.out.print("Em quantas parcelas: ");
 			quantParcela = sc.nextInt();
-			novo.parcelado();
+			
+			if(quantParcela > 12 || quantParcela <= 0) {
+				System.out.println();
+				System.out.println("Quantidade de parcelas inválida!");
+				System.out.println("Considerando Quantidade de parcelas máxima: 12");
+				quantParcela = 12;
+			}
+			
+			double novoPreco = novo.parcelado(quantParcela);
+			novo.setPreco(novoPreco);
 			valorParcela = novo.getPreco() / quantParcela;
 			System.out.println();
 			System.out.println(novo + ", dividido em " + 

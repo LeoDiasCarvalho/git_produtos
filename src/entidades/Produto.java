@@ -24,6 +24,10 @@ public class Produto {
 	public double getPreco() {
 		return preco;
 	}
+	
+	public void setPreco(double preco) {
+		this.preco = preco;
+	}
 
 	
 	public String toString() {
@@ -35,14 +39,17 @@ public class Produto {
 		
 	}
 	
-	public double parcelado() {
-		return preco += preco * 2/100;
-		
+	public double parcelado(int quantParcela) {
+		double valor = 0.0;
+		if(quantParcela > 10 && quantParcela <= 12) {
+			valor = preco + preco * 10 / 100;
+		}else if(quantParcela > 5 && quantParcela <= 10) {
+			valor = preco +  preco * 5 / 100;
+		}else if(quantParcela > 3 && quantParcela <= 5) {
+			valor = preco + preco * 2 / 100;
+		}else if(quantParcela >= 1 && quantParcela <= 3) {
+			valor = preco;
+		}
+		return valor;
 	}
-	
-	
-	
-	
-	
-
 }
